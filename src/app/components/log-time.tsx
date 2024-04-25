@@ -14,6 +14,8 @@ function LogTime() {
       setProject("");
       setHours("");
       setShowForm(false);
+    } else {
+      alert("Please enter a project name and the number of hours worked");
     }
   };
 
