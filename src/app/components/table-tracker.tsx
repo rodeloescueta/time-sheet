@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { useProjectStore } from "../store";
-import LogTime from "./log-time";
 
 function TableTracker() {
   const { projects, isLoading } = useProjectStore((state) => ({
@@ -9,8 +8,7 @@ function TableTracker() {
     isLoading: state.isLoading,
   }));
   return (
-    <div className="p-8 ">
-      <pre>{JSON.stringify(projects, null, 2)}</pre>
+    <>
       {isLoading ? (
         <button type="button" className="bg-blue-500" disabled>
           Processing...
@@ -45,9 +43,7 @@ function TableTracker() {
           </tbody>
         </table>
       )}
-
-      <LogTime />
-    </div>
+    </>
   );
 }
 

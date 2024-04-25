@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import TableTracker from "./components/table-tracker";
+import LogTime from "./components/log-time";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         {children}
-        <TableTracker />
+        <div className="p-8">
+          <TableTracker />
+          <LogTime />
+        </div>
       </body>
     </html>
   );
