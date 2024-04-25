@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { useProjectStore } from "../store";
+import LogTime from "./log-time";
 
 function TableTracker() {
   const projects = useProjectStore((state) => state.projects);
@@ -19,18 +20,23 @@ function TableTracker() {
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-200">
-          <tr>
-            <td className="px-6 py-4">
-              <div className="text-sm text-gray-900">Project Name</div>
-            </td>
-            <td className="px-6 py-4 whitespace-nowrap">
-              <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                3:00:00
-              </span>
-            </td>
-          </tr>
+          {projects.map((el) => {
+            return (
+              <tr key={el.project}>
+                <td className="px-6 py-4">
+                  <div className="text-sm text-gray-900">{el.project}</div>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                    {el.hours}
+                  </span>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
+      <LogTime />
     </div>
   );
 }
